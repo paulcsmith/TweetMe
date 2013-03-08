@@ -1,0 +1,1 @@
+// Used for creating drafts. Lawnchair makes it very easy to work with data so I may not even need/want to define a model

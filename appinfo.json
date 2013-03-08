@@ -1,0 +1,25 @@
+{
+	"title": "Twitter",
+	"type": "web",
+	"main": "index.html",
+	"id": "com.palm.app.twitter",
+	"icon": "icon-64x64.png",
+	"miniicon": "icon-24x24.png",
+	"version": "1.2.0", 
+	"noWindow": "true",
+	"noDeprecatedStyles": true,
+  	"visible": true,
+	"vendor": "HPalm",
+	"splashBackground": "images/splash_background.png",
+	"splashicon": "icon-256x256.png",
+	"keywords": ["Twitter", "Tweet", "bird", "whale"],
+	"dockMode": true,
+	"touchstoneMode": "enabled",
+	"universalSearch":	{
+						"action":{ 
+									"displayName": "Tweet",
+									"url": "com.palm.app.twitter",
+									"launchParam": "quickActionStr"
+								}
+						}
+}

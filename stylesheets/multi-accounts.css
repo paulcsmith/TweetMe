@@ -1,0 +1,158 @@
+// TODO: Change the CSS so the slide out/in when minimizing/maximizing is smooth. Something in here makes it less smooth. Probably all the negative margins (?)
+
+#divActionsRight {
+  bottom: -1px;
+  z-index: 3;
+}
+
+#divNavIcon {
+  margin-right: -27px; /* default is 4px */
+  z-index: 460;
+  top: 1px;
+}
+
+#divNavActionsWrapper {
+  margin-top: -170px;
+}
+
+/* The upward facing arrow */
+#divNavIcon:after {
+  display: none;
+}
+
+#divNavIcon #divUnreadDot {
+  margin-left: -2px;
+  margin-top: 1px;
+}
+
+/*
+#divNavIcon.search {
+  margin-right: -16px;
+  margin-left: -16px;
+  -webkit-transform: rotateY(180deg);
+}
+#divNavIcon.search #divUnreadDot {
+  margin-left: -27px;
+}
+*/
+#divNavIcon.search {
+  margin-left: -5px;
+}
+
+#divNavIcon.drafts {
+  margin-left: -4px;
+  -webkit-transform: scale(.91);
+}
+#divNavIcon.drafts #divUnreadDot {
+  -webkit-transform: scale(1.12);
+  margin-top: 0px;
+}
+
+#divNavIcon.mentions, #divNavIcon.favorites, #divNavIcon.my-tweets, #divNavIcon.messages {
+  top: 0px;
+}
+#divNavIcon.my-tweets {
+  margin-right: -24px;
+}
+
+#divUsernameWrapper {
+  margin-right: -11px; /* OG is -9px */
+  max-width: 120px;
+}
+
+#divCurrentAccountWrapper, .multi-account-avatar-wrapper {
+  display: block;
+  position: relative;
+  top: 6px;
+  z-index: 459;
+  float: right;
+  width: 51px;
+  height: 51px;
+  margin-right: -4px; /* was -9px */
+}
+
+#divCurrentAccountWrapper .multi-account-cover, .multi-account-avatar-wrapper .multi-account-cover {
+  position: absolute;
+  z-index: 2;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  background: transparent url('../images/multi-account/avatar-cover.png') no-repeat center center;
+}
+#divCurrentAccountWrapper .multi-account-avatar-wrapper.selected .multi-account-cover, .multi-account-avatar-wrapper.selected .multi-account-cover {
+  background: transparent url('../images/multi-account/avatar-cover-selected.png') no-repeat center center;
+}
+
+#divCurrentAccountWrapper img, .multi-account-avatar-wrapper img {
+  position: absolute;
+  z-index: 1;
+  left: 7px;
+  top: 8px;
+  width: 34px;
+  height: 34px;
+}
+
+/*
+  Account selector
+    */
+    
+#divAccountSelector {
+	position: absolute;
+	z-index: 0;
+	right: 0;
+	bottom: -1px;
+	height: 100%;
+	opacity: 0;
+	-webkit-transition-property: opacity;
+	-webkit-transition-duration: .3s;
+	-webkit-transition-timing-function: linear;
+}
+#divAccountSelector .multi-account-avatar-wrapper {
+  margin-right: 0px;
+}
+
+.show-accounts #divAccountSelector {
+  opacity: 1;
+  z-index: 4;
+}
+
+
+/* 
+  Stuff for animating in all the accounts
+    */
+    
+#divActionsRight {
+/*  -webkit-transform: translate(0px, 0px);*/
+  -webkit-transition-property: opacity;
+  -webkit-transition-duration: .3s;
+  -webkit-transition-timing-function: linear;
+}
+#divComposeButton {
+/*  -webkit-transform: translate(0px, 0px);
+  -webkit-transition-property: webkit-transform;
+  -webkit-transition-duration: .3s;
+  -webkit-transition-timing-function: linear;*/
+}
+.show-accounts #divActionsRight {
+/*  margin-right: -200px;*/
+  opacity: 0;
+/*  -webkit-transform: translate(200px, 0px);*/
+} 
+
+
+/*.show-accounts #divComposeButton {
+  opacity: 0;
+}*/
+
+#divCloseArrow {
+  height: 100%;
+  width: 35px;
+  margin-right: 3px;
+  background: transparent url('../images/multi-account/close-arrow.png') no-repeat center center;
+  float: right;
+}
+
+
+
+

@@ -1,0 +1,50 @@
+/* tweet view tweets */
+#divSingleTweet .tweet-content p {
+  font-size: 18px;
+  line-height: 22px;
+}
+#divSingleTweet .tweet-content p.source_and_time {
+  font-size: 15px;
+}
+/* Pushes emotiocns/smileys down a little bit */
+#divSingleTweet .tweet-content img {
+  margin-top: -4px;
+  top: 4px;
+}
+/* regular timeline tweets */
+.tweet-content p, p.tweet-content {
+  font-size: 17px;
+  line-height: 21px;
+}
+span.username {
+  font-size: 17px;
+  width: 155px;
+  height: 23px;
+}
+span.prettyTime {
+  font-size: 17px;
+}
+span.prettyTime .number {
+  font-size: 16px;
+}
+/* user info pane */
+#divUserInfoPane p {
+  font-size: 18px;
+  line-height: 20px;
+}
+/* Header name for tweet view and user info */
+.user-info .real_name {
+  font-size: 18px;
+}
+.user-info .screen_name {
+  font-size: 16px;
+  margin-top: -1px;
+}
+
+/* Trends what's this explanation */
+#divHeaderDescription p {
+  font-size: 18px;
+}
+textarea {
+  font-size: 21px;
+}

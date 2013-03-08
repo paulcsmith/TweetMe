@@ -1,0 +1,13 @@
+<!--Metadata are things like "photos" "conversation" "links" or other data that can be used to display information about the tweet, usually in icon form-->
+<div class="tweet #{type} #{favorite} #{metadata}" x-mojo-tap-highlight="momentary">
+  <div class="star"></div>
+	<div class="avatar">
+	  <img src="#{user.profile_image_url}" />
+	  <div class="avatar-cover"></div>
+	</div>
+	<div class="tweet-info">
+	  <span class="username truncating-text">#{user.display_name}</span>
+	  <span class="prettyTime" created-at="#{created_at}">#{-prettyTime}</span>
+	</div>
+	<p class="tweet-content">#{-simpleFormattedText}</p>
+</div>

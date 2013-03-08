@@ -1,0 +1,8 @@
+Apr 28, 2010
+- Fixed tapping on misspelled username
+- Fixed auth bug where it would sign you out if you lost connection midway through a request
+- Fixed New style Retweet
+- Fixed Old style retweet that would remove http from strings
+- Also fixed share via email and sms where http was stripped from strings
+- Added timestamp when refreshing and loading more tweets
+- Fixed incorrect sign out when viewing protected accounts, protected tweets, etc.

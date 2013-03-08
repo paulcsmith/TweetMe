@@ -1,0 +1,36 @@
+<div id="divNavActionPositioner">
+	<!-- This just sets the position to relative so that I can put the bg over, and then put the actions over that and still control the bg opacity independently. -->
+	<div id="divActionsBG">
+		<!-- Just houses the tweet cover. Doesn't contain anything so that way I can set the opacity without setting the opacity of the buttons on other images -->
+	</div>
+	<div id="divComposeButton" class="tm-main-button compose">
+		<div class="plus">
+			
+		</div>
+	</div>
+	<div id="divActionsRight">
+	  <div id="divCurrentAccountWrapper" class="multi-account-avatar-wrapper">
+	    <div class="multi-account-cover">
+	      
+	    </div>
+	    <img src="#{prefs.profile_image_url}" />
+	  </div>
+	  
+		<div id="divNavIcon" class="#{scene.name} #{scene.hasUnread}">
+      <div id="divUnreadDot">
+        
+      </div>
+		</div>
+		
+		<div id="divUsernameWrapper" class="shadow-behind-text">
+			<!--#{prefs.screen_name}-->
+			#{scene.nameUpcased}
+		</div>
+	</div>
+	<div id="divAccountSelector">
+	  <!--Account selector goes here-->
+	</div>
+	<div id="divShadow">
+		<!-- Contains the shadow for underneath the slide up card. I believe this is no longer used... -->
+	</div>
+</div>

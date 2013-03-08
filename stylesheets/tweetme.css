@@ -1,0 +1,2201 @@
+html, body {
+	height: 100%;
+}
+body.palm-dark { 
+	/* preload */
+	background-image: url("../images/ajax-loader-big.gif");
+	background-image: url("../images/blue-button-indented-bg.png");
+	background-image: url("../images/blue-button-pressed-bg.png"); 
+	background-image: url("../images/tweets/pressed-bg.png"); 
+	background-image: url("../images/tweets/pressed-left.png"); 
+	background-image: url("../images/tweets/pressed-right-bg.png"); 
+	background-image: url("../images/tweets/pressed-right-piece.png"); 
+	background-image: url("../images/dark-header-bg.png"); 
+	background-image: url("../images/icons.png"); 
+	background-image: url("../images/ajax-loader-on-bg.gif"); 
+	background-image: url("../images/tweet-view/blue-tweet-view.png"); 
+	background-image: url("../images/tweet-view/yellow-tweet-view.png"); 
+	background-image: url("../images/tweet-view/turquoise-tweet-view.png"); 
+	background-image: url("../images/big-avatar-cover.png"); 
+	background-image: url("../images/pressed-row/row-pressed-top.png"); 
+	background-image: url("../images/pressed-row/row-pressed-bottom.png"); 
+	background-image: url("../images/pressed-row/row-pressed-middle.png"); 
+	background-image: url("../images/user-info/dark-user-pane.png"); 
+	background-image: url("../images/user-info/dark-pane-text-field.png"); 
+	background-image: url("../images/ajax-loader-action-item-normal.gif");
+	
+	background-image: url("../images/background-bottom-dark.png"), url("../images/backgrounds.png");
+	background-color: #354857;
+	background-repeat: no-repeat;
+	background-position: bottom left, 0 -558px;
+}
+
+.palm-header {
+	z-index: 448 !important;
+}
+.palm-header-spacer.shorter {
+	height: 53px;
+}
+#listWidget {
+	float: left;
+	/*padding-bottom: 48px !important;*/
+}
+.palm-header ~ #divBaseLayout #twitterHeader,
+.divHeader ~ #divBaseLayout #twitterHeader,
+#divEntryPane ~ #divBaseLayout #twitterHeader {
+	display: none;
+}
+#divBaseLayout {
+	padding-bottom: 56px;
+}
+#divBaseLayout.no-bottom-actions {
+	padding-bottom: 0px;
+}
+div[name=topSpacer], div[name=bottomSpacer] {
+	background: none !important;
+}
+
+/* Changes selection color from yellow to blue */
+/*textarea::selection {
+  background: #368dc9 !important;
+}*/
+#palm-scrim {
+  background-image: url('../images/palm-darker-scrim.png');
+  background-repeat: repeat !important;
+  background-position: center center;
+}
+#divBottomScrollFade {
+  position: fixed;
+  z-index: 10;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  opacity: .7;
+  background: url("../images/scroll-fades/bottom-scroll-fade.png") no-repeat bottom left;
+  pointer-events: ignore;
+}
+
+/* 
+    Ghost Elements styles for autoresizing text fields
+        */
+
+.ghost-element {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    pointer-events: ignore;
+    width: 274px;
+    z-index: 0;
+}
+
+
+/*
+	Static Header with a Refresh button
+		*/
+
+.view-menu .twitter-logo {
+	width: 108px;
+	height: 50px;
+	background: url(../images/twitter-logo.png) center center no-repeat;
+}
+
+@-webkit-keyframes spin {
+  from {-webkit-transform: rotate(0);}
+  to {-webkit-transform: rotate(360deg);}
+}
+.selected .palm-menu-icon.refresh {
+	-webkit-animation: spin .5s linear infinite;
+}
+
+/*
+	Load More/Refresh Tweets button
+		*/
+
+.tm-load-button {
+	display: none;
+	clear: both;
+	margin-top: 9px;
+	height: 54px;
+	width: 100%; 
+	background: transparent url("../images/load-buttons-bg.png") no-repeat 4px -5px;
+}
+
+.has-header .tm-load-button {
+	margin-top: -4px;
+	margin-bottom: 10px;
+}
+.has-header .tm-load-button.more {
+	margin-top: 10px;
+}
+
+.tm-load-button.refresh {
+	margin-top: 0;
+	margin-bottom: -5px;
+	height: 0;
+	overflow: hidden;
+	display: block;
+	opacity: 0;
+	-webkit-transform: scale(.9);
+	-webkit-transition-property: height, margin, opacity, -webkit-transform;
+	-webkit-transition-duration: .45s, .45s, .65s, .65s;
+	-webkit-transition-timing-function: ease-in-out, linear, linear, linear;
+}
+.message-list .tm-load-button.refresh {
+  margin-bottom: 0;
+  margin-top: -5px;
+}
+/* Slides in refresh button 
+.show-refresh .tm-load-button.refresh {
+	margin-top: 9px;
+	margin-bottom: -5px;
+	height: 54px;
+	opacity: .9;
+	-webkit-transform: scale(1);
+}
+.show-refresh.has-header .tm-load-button.refresh {
+	margin-top: -5px;
+	margin-bottom: 11px;
+	height: 54px;
+	opacity: 1;
+	-webkit-transform: scale(1);
+}
+*/
+
+.show-more .tm-load-button.more {
+	display: block;
+}
+
+.selected.tm-load-button, .tm-load-button:active {
+	background-position: 4px -74px;
+}
+.tm-load-button .text {
+	text-align: center;
+	line-height: 55px;
+	position: relative;
+}
+.tm-load-button .text:after {
+	content: '';
+	position: absolute;
+	top: 12px;
+	left: 20px;
+	margin-left: 20px;
+	display: block;
+	height: 33px;
+	width: 35px;
+	overflow: hidden;
+	background: transparent url(../images/ajax-loader-load-button.gif) no-repeat center center;
+	-webkit-palm-mouse-target: ignore;
+/*	-webkit-transform: scale(0);*/
+	opacity: 0;
+/*	-webkit-transition-property: -webkit-transform, opacity, left;
+	-webkit-transition-duration: 1s;
+	-webkit-transition-timing-function: ease-in;*/
+	
+}
+
+.selected.tm-load-button .text {
+/*	margin-left: 92px;*/
+}
+.selected.tm-load-button .text:after {
+	left: 0px;
+	opacity: 1;
+	z-index: 100;
+}
+
+
+.no-bottom-actions .tm-load-button.more {
+	margin-top: 13px;
+	margin-bottom: 11px;
+}
+
+.hide-load-buttons .tm-load-button {
+  display:  none;
+}
+
+
+/*
+	Custom Dark Dividers
+		 */
+
+.palm-divider .label {
+	font-size: 16px;
+	color: #cddae7 !important;
+	padding-right: 8px !important;
+	line-height: 26px !important;
+	text-shadow: 0 -1px 0 #000;
+}
+.palm-divider .label.brighter {
+  color: #eff4f9 !important;
+}
+.palm-divider .label.darker {
+  color: #8b9aa9 !important;
+}
+.palm-divider .label .divSmallLoader {
+	background: transparent url("../images/ajax-loader-small-for-bg.gif") no-repeat 0px 4px;
+	height: 20px;
+	width: 21px;
+	float: left;
+	-webkit-transform: scale(1);
+	opacity: 1;
+	-webkit-transition-property: -webkit-transform, opacity, width;
+	-webkit-transition-duration: .5s, .5s, .4s;
+	-webkit-transition-timing-function: linear;
+}
+.palm-divider .label .divSmallLoader.hide {
+	width: 0px;
+	-webkit-transform: scale(0);
+	opacity: 0;
+}
+table.palm-divider {
+	float: left;
+	margin-top: -6px;
+}
+.palm-divider.labeled .left {
+	padding-left: 9px; /* default is 8px */
+	background: transparent url(../images/labeled-divider-bg.png) no-repeat scroll right center !important;
+}
+.palm-divider.labeled .right {
+	background: transparent url(../images/labeled-divider-bg.png) no-repeat scroll left center !important;
+}
+
+.palm-divider.top-label {
+	margin-top: 9px;
+}
+.palm-divider.top-label .label{
+	color: #f4f7fa !important;
+}
+
+
+/* Used as a cover layer to block all taps */
+#divBlockTaps {
+	position: fixed;
+	z-index: 1200;
+	display: none;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+}
+#divBlockTaps.block {
+	display: block;
+}
+
+
+/* Regular row items for saved searches, recent user etc. */
+.tm-row.regular {
+	text-align: left;
+	width: 295px;
+	padding-left: 25px;
+	color: #FFF;
+	overflow: hidden;
+}
+
+
+
+
+
+/* 
+	People list: Following/followers list and go to user list
+		*/
+
+.no-bottom-actions #listWidget {
+	padding-top: 4px;
+	padding-bottom: 3px !important;
+}
+.tm-row.person {
+	line-height: 17px;
+	height: 58px;
+	padding-left: 21px;
+	width: 299px;
+}
+.tm-row.person .avatar_cover {
+  background: none;
+  left: 0px;
+}
+.tm-row.person img:first-child {
+  margin-left: 0px;
+  width: 36px !important;
+}
+.selected.tm-row.person {
+	line-height: 17px;
+}
+.tm-row.regular span:after {
+	display: none;
+}
+.tm-row.regular span.real-name {
+	margin-top: 10px;
+	font-size: 17px;
+	font-weight: bold;
+	float: left;
+	clear: both;
+	overflow: visible;
+	width: 234px;
+}
+.tm-row.regular span.screen-name {
+	font-size: 15px;
+	color: #d7e2eb;
+	width: 234px;
+	float: left;
+	clear: both;
+	overflow: visible;
+}
+.tm-row.regular .avatar {
+	float: right;
+	position: relative;
+	margin: -22px 0px 0px 0px;
+	padding: 0px;
+	height: 32px;
+	border: none;
+	background: none;
+}
+.tm-row.regular .avatar .avatar_cover_wrapper {
+	position: absolute;
+	top: 0;
+	left: -18px;
+}
+.tm-row.regular .avatar div.avatar_cover_wrapper:after {
+	display: none;
+}
+
+.selected.tm-row.person {
+	height: 60px;
+}
+.selected.tm-row.person span.real-name {
+	margin-top: 13px;
+}
+.selected.tm-row.person .avatar {
+	margin-top: -22px;
+}
+
+
+
+
+
+/*
+	Go to User/Search Styles
+		*/
+
+#divEntryPane {
+	margin-top: 2px;
+	min-height: 0px;
+}
+
+
+.divDarkPane .tm-text-field {
+	width: 260px;
+	height: 61px;
+	float: left;
+	clear: both;
+	-webkit-border-image: url(../images/go-to-user/dark-pane-text-field.png) 0 10 0 10 stretch stretch;
+	border: 10px solid transparent;
+	border-bottom-width: 0px;
+	border-top-width: 0px;
+	color: #FFF;
+	padding: 0px 0px !important;
+	margin: -4px 0px 19px -11px;
+}
+.divDarkPane .tm-text-field .hint-text {
+	z-index: 10;
+}
+.divDarkPane .focused .tm-text-field .hint-text {
+	color: #c5dbef;
+}
+.divDarkPane .tm-text-field div, .divDarkPane .focused .tm-text-field div {
+	color: #9cafc0;
+	margin-top: 1px;
+	padding-left: 8px !important;
+}
+/* This is the part that always gets so messed up */
+.divDarkPane .focused .tm-text-field div {
+	color: #c5dbef;
+}
+.divDarkPane .tm-text-field input {
+	margin-top: 1px;
+	padding-left: 7px !important;
+}
+
+
+.divDarkPane .tm-blue-button {
+	width: 265px;
+	padding: 0px;
+	margin-left: -7px;
+	margin-top: -39px;
+	margin-bottom: -7px;
+}
+.divDarkPane .tm-blue-button .palm-button {
+	width: 273px;
+}
+/* text styles */
+.divDarkPane .go-to-user .palm-button-wrapper {
+	background-image: none;
+}
+
+/* text styles for "message this user" */
+.message-this-user.divDarkPane .go-to-user .palm-button-wrapper {
+	background-image: none;
+}
+
+/* Search styles */
+.divDarkPane #search-button .palm-button-wrapper {
+	background-image: none;
+}
+
+
+
+/* for timelines with header: Search results, twitter convos etc. */
+#divShortHeader {
+	min-height: 51px;
+}
+
+.short-header-wrapper {
+	min-height: 37px;
+	float: left;
+	width: 320px;
+}
+.short-header-icon {
+	float: left;
+	display: block;
+	width: 31px;
+	height: 37px;
+	margin-left: 11px;
+	background: transparent url("../images/icons.png") no-repeat center center;
+	position: relative;
+	left: 0px;
+	top: 0px;
+	opacity: 1;
+	margin-right: 0px;
+	-webkit-transition-property: left, opacity;
+	-webkit-transition-duration: .35s;
+	-webkit-transition-timing-function: ease-out;
+}
+.short-header-icon.hide {
+    left: -70px;
+    opacity: 0;
+}
+.short-header-icon.search {
+	background-position: -78px -676px;
+}
+.short-header-icon.trends {
+	background-position: -26px -675px;
+}
+.short-header-icon.write-tweet {
+	background-position: -30px -162px;
+	margin-right: 3px;
+}
+/* Get it...mini me...it's funny */
+.short-header-icon.mini-me {
+/*  background-image: url('../images/mini-icon.png');*/
+  background-image: url('../miniicon.png');
+	background-position: center center;
+	width: 47px;
+	margin-right: 5px;
+}
+.short-header-icon.show-conversation {
+  background-position: -95px -210px;
+  width: 43px;
+}
+.short-header-icon.lists {
+  background-position: -350px -210px;
+  width: 43px;
+}
+.short-header-text {
+	font-weight: bold;
+	float: left;
+	height: 37px;
+	line-height: 37px;
+	font-size: 17px;
+	color: #d7ebfe;
+	width: 259px; /* was 265px */
+	-webkit-transition-property: margin-left;
+	-webkit-transition-duration: .35s;
+	-webkit-transition-timing-function: ease-in-out;
+}
+/* Used to animate the text slightly to the right so that it fits with the counter */
+.short-header-text.slide-over {
+    margin-left: 16px;
+}
+
+.has-whats-this .short-header-text {
+	width: 160px;
+}
+
+.short-header-text span.lighter-text {
+	color: #b6cce0;
+}
+
+/* 
+	Compose styles
+		 */
+
+.short-header-wrapper.compose {
+	min-height: 53px;
+}
+.compose .short-header-text {
+	line-height: 38px;
+	color: #b0c8de;
+}
+/* should rename lighter-text to second text or sub-text or something that makes more sense, since it will no be brighter :S */
+.compose .short-header-text .lighter-text {
+  color: #d6e3ef;
+}
+#divComposeTextAreaWrapper {
+    clear: both;
+}
+
+/* Inherits a lot from the big-avatar class */
+#divComposeAvatarWrapper {
+	position:  absolute;
+	top: -4px;
+	right: 6px;
+	width: 62px;
+	height: 64px;
+	z-index: 50;
+}
+.divTextareaWrapper {
+	float: left;
+	border: 12px solid transparent;
+	-webkit-border-image: url("../images/compose/text-area-bg.png") 12 stretch stretch;
+	margin: 0px 11px;
+	margin-top: -2px;
+	width: 274px;
+/*	height: 127px;*/
+/*	overflow: auto;*/
+	position: relative;
+}
+/* also styles actions for direct message 
+#divActions.compose-actions, #divActions.user-info-actions {
+    position: static;
+    float: left;
+    clear: both;
+    z-index: 2;
+    margin-top: 10px;
+}
+#divActions.user-info-actions {
+  margin-top: -10px;
+}
+*/
+/* Action icons */
+.compose-actions .tm-row, .user-info-actions .tm-row {
+    color: #c9d2db;
+}
+/* Default left value for rows is -33px*/
+.tm-row.attach-photo span:after {
+	background-position: -91px -164px;
+	width: 38px;
+	left: -42px;
+}
+.tm-row.add-location span:after {
+	background-position: -157px -163px;
+}
+.tm-row.shorten-links span:after {
+	background-position: -211px -163px;
+}
+
+
+textarea {
+	font-size: 18px;
+	color: #f5fafd;
+	width: 274px;
+	min-height: 95px;
+/*	height: 207px;*/
+	float: left;
+	/* mostly to clear default styles */
+	margin: 0px;
+	padding: 0px;
+	margin-top: -5px;
+	-webkit-border-image: none;
+	background-image: none;
+	background-color: transparent;
+	border: none;
+	-webkit-transition-property: height;
+	-webkit-transition-duration: .2s;
+	-webkit-transition-timing-function: linear;
+}
+
+#composeTextArea {
+    height: 45px;
+}
+
+
+#divButtonWrapper.tweet-button.tm-blue-button {
+	text-align: center;
+	position: relative;
+	top: -20px;
+	margin-bottom: -15px;
+}
+#divButtonWrapper.tm-blue-button.tweet-button .palm-button {
+	width: 273px;
+}
+
+#divButtonWrapper.tweet-button .palm-button-wrapper {
+	background-image: none;
+}
+
+#divButtonWrapper.tm-blue-button.tweet-button.show-loader #divLoader {
+    left: 45px;
+}
+/* send direct message */
+#divButtonWrapper.tweet-button.message .palm-button-wrapper:after {
+	background-position: 56px -503px;
+}
+#divButtonWrapper.tweet-button.message .selected .palm-button-wrapper:after {
+	background-position: 56px -501px;
+}
+#divButtonWrapper.tm-blue-button.tweet-button.message.show-loader #divLoader {
+    left: 21px;
+}
+
+
+/* Char counter */
+#divCharCounter {
+    width: 43px;
+    height: 24px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+    background: transparent url('../images/icons.png') no-repeat -271px -169px;
+    position: absolute;
+    top: 8px;
+    left: -60px;
+    opacity: 0;
+    -webkit-transition-property: left, opacity;
+    -webkit-transition-duration: .35s;
+    -webkit-transition-timing-function: default;
+}
+
+#divCharCounter.show {
+    left: 13px;
+    opacity: 1;
+}
+
+/* Used when close to the limit. */
+#divCharCounter.orange {
+    background-position: -326px -169px;
+}
+
+/* Used when over the limit. */
+#divCharCounter.red {
+    background-position: -25px -219px;
+}
+
+
+#divInReplyToTweetWrapper {
+  float: left;
+  margin-top: 15px;
+}
+
+#divInReplyToTweetWrapper .palm-divider {
+  opacity: .8;
+}
+
+
+/* 
+	Nav Actions only
+		*/
+
+#divNavActionsWrapper {
+	position: fixed;
+	z-index: 450;
+/*  z-index: 300000;*/
+	top: 50%;
+/*	left: -100%;*/
+	left: 0;
+	margin-bottom: 5px;
+	margin-top: -161px;
+	padding-top: 15px;
+	padding-left: 5px;
+	width: 315px;
+	height: 308px;
+	background-image: /*url("../images/nav-icons.png"), */url("../images/nav-bg.png");
+	background-repeat: no-repeat;
+	background-position: /*0px 13px, */center center;
+	opacity: 0;
+	-webkit-transition-property: opacity;
+	-webkit-transition-duration: .20s;
+	-webkit-transition-timing-function: linear;
+	-webkit-palm-mouse-target: ignore;
+}
+#divNavActionsWrapper.appear {
+	opacity: 1;
+/*	left: 0;*/
+}
+
+
+/* Big main icon - For some reason the nav-icon for favorites wasn't getting these styles so I had to add it explicitly */
+.nav-icon, .nav-icon.favorites {
+	position: relative;
+	float: left;
+	width: 77px;
+	height: 90px;
+	color: #a1acb3;/* ccd5dc */
+	font-size: 14px;
+	line-height: 13px;
+	font-weight: bold;
+/*	background-image: url("../images/nav-icons.png");*/
+  background-image: url("../images/nav-icons-v2.png");
+/*	background-image: none;*/
+	background-repeat: no-repeat;
+	background-position: 0px -2px;
+	display: none;
+}
+.nav-icon.has-unread-items:before {
+  display: block;
+  content: '';
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  width: 35px;
+  height: 34px;
+  background-image: url("../images/icons.png");
+	background-repeat: no-repeat;
+	background-position: -298px -87px;
+}
+.nav-icon.messages.has-unread-items:before {
+  top: 4px;
+}
+.nav-icon.home.has-unread-items:before {
+  top: 5px;
+}
+#divNavActionsWrapper.appear .nav-icon {
+	display: block;
+}
+.nav-icon span {
+	position: absolute;
+	bottom: 13px;
+	left: 0;
+	width: 100%;
+	text-align: center;
+/*	background: purple;*/
+}
+.selected.nav-icon {
+	color: #FFF;
+}
+.selected.nav-icon:after {
+	position: absolute;
+	left: -25px;
+	top: -50px;
+	content: '';
+	display: block;
+	height: 150px;
+	width: 150px;
+	background: transparent url("../images/nav-pressed.png") no-repeat center center;
+}
+.nav-icon.my-tweets {
+	background-position: -4px -2px;
+	width: 78px;
+}
+.nav-icon.go-to-user {
+	background-position: -82px -2px;
+	width: 83px;
+	text-indent: 3px;
+}
+.nav-icon.my-info {
+	background-position: -167px -2px;
+	width: 78px;
+}
+.nav-icon.nearby {
+	background-position: -245px -2px;
+	width: 71px;
+}
+
+
+.nav-icon.public-timeline, .nav-icon.lists {
+	background-position: -4px -92px;
+	width: 80px;
+}
+.nav-icon.public-timeline span {
+	margin-bottom: -7px;
+}
+.nav-icon.mentions {
+	background-position: -84px -92px;
+	width: 81px;
+	text-indent: 6px;
+}
+.nav-icon.trends {
+	background-position: -167px -92px;
+	width: 77px;
+}
+.nav-icon.drafts {
+	background-position: -244px -92px;
+	width: 68px;
+}
+
+
+.nav-icon.home {
+	background-position: -5px -182px;
+	width: 80px;
+	text-indent: 3px;
+}
+.nav-icon.messages {
+	background-position: -84px -182px;
+	width: 82px;
+	text-indent: 12px;
+}
+.nav-icon.search {
+	background-position: -168px -182px;
+	width: 74px;
+	text-indent: 3;
+}
+.nav-icon.favorites {
+	background-position: -242px -182px;
+	width: 70px;
+}
+
+
+
+
+
+
+/*
+	Bottom right actions, and Nav styles (for main scenes like home, favorites,e tc.
+		*/
+#divActionsAndNavWrapper {
+	position: fixed;
+	z-index: 300;
+	bottom: 0px;
+	left: 0;
+	width: 320px;
+	height: 58px;
+	z-index: 400;
+	-webkit-transform: translate(0px, 0px);
+	-webkit-palm-mouse-target: ignore;
+	/*-webkit-transition-property: bottom;*/
+	-webkit-transition-property: -webkit-transform;
+	-webkit-transition-duration: .20s;
+	-webkit-transition-timing-function: ease-out;
+}
+#divActionsAndNavWrapper.hide {
+	/*bottom: -58px;*/
+	-webkit-transform: translate(0px, 58px);
+}
+#divNavActionPositioner {
+	float: left;
+	width: 320px;
+	position: relative;
+	height: 100%;
+	-webkit-palm-mouse-target:ignore;
+}
+#divCurrentAccountWrapper {
+  display: none;
+}
+
+
+#divActionsBG {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 320px;
+	height: 100%;
+	background: url("../images/backgrounds.png") no-repeat 0 -421px;
+	opacity: .8;
+/*	-webkit-border-radius: 20px;*/
+	-webkit-palm-mouse-target: ignore;
+}
+.tm-main-button {
+	position: relative;
+	left:  -2px;
+	bottom: -6px;
+	height: 56px;
+	width: 68px;
+	background: transparent url("../images/action-icons.png") no-repeat -8px -8px;
+}
+.tm-main-button.selected, .tm-main-button:active {
+	background-position: -104px -8px;
+}
+/* Big pressed down glow */
+.tm-main-button.selected:before, .tm-main-button:active:before {
+	content: '';
+	display: block;
+	position: absolute;
+	bottom: 2px;
+	left: 2px;
+	height: 170px;
+	width: 150px;
+	background: transparent url("../images/action-icons.png") no-repeat bottom left;
+}
+
+.tm-main-button .plus {
+	content: '';
+	position: absolute;
+	z-index: 100;
+	right: 21px;
+	top:  11px;
+	display: block;
+	float: right;
+	width: 24px;
+	height: 24px;
+	background: transparent url("../images/action-icons.png") no-repeat -23px -77px;
+	-webkit-palm-mouse-target: ignore;
+}
+.tm-main-button.selected .plus, .tm-main-button:active .plus {
+	background-position: -119px -77px;
+}
+
+/* :after is the actual icon */
+.tm-main-button:after {
+	content: '';
+	display: block;
+	float: left;
+	margin-top: 12px;
+	margin-left: 9px;
+	width: 36px;
+	height: 36px;
+	position: relative;
+	background: transparent url("../images/action-icons.png") no-repeat -17px -120px;
+}
+.tm-main-button.selected:after, .tm-main-button:active:after {
+	background-position: -113px -120px;
+}
+.message-list .tm-main-button:after {
+  background-position: -17px -271px;
+}
+.message-list .tm-main-button.selected:after, .message-list .tm-main-button:active:after {
+  background-position: -113px -271px;
+}
+.message-list .tm-main-button .plus {
+  right: 21px;
+  top: 10px;
+}
+
+
+#divActionsRight {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	height: 100%;
+}
+
+#divUsernameWrapper, .shadow-behind-text {
+  line-height: 30px;
+  color: #f1f4f6;
+  font-size: 19px;
+  border: 16px solid transparent;
+  border-bottom-width: 0px;
+  border-top-width: 0px;
+  -webkit-border-image: url("../images/username-shadow.png") 0 16 0 16 stretch stretch;
+  height: 34px;
+  font-weight: bold;
+}
+
+#divUsernameWrapper {
+	float: right;
+	height: 34px;
+	margin-top: 17px;
+	margin-right: -9px;
+}
+#divNavIcon {
+	position: relative;
+	float: right;
+	width: 50px;
+	height: 50px;
+	margin-top: 12px;
+	margin-right: 4px;
+	background-repeat: none;
+	background-image: url("../images/icons.png");
+}
+#divNavIcon:after {
+	content: '';
+	display: block;
+	position: absolute;
+	top: 4px;
+	right: -1px;
+	width: 29px;
+	height: 29px;
+	background: url("../images/icons.png") no-repeat -214px -220px;
+}
+#divNavIcon #divUnreadDot {
+  opacity: 0;
+  position: relative;
+  top: -3px;
+  right: -17px;
+  width: 27px;
+  height: 27px;
+  background-repeat: none;
+  background-image: url("../images/icons.png");
+  background-position: -278px -212px;
+  -webkit-palm-mouse-target: ignore;
+  -webkit-transition-property: opacity;
+  -webkit-transition-duration: .5s;
+  -webkit-transition-timing-function: linear;
+}
+
+#divNavIcon.has-unread-items #divUnreadDot {
+  opacity: 1;
+  -webkit-transition-property: opacity;
+  -webkit-transition-duration: .5s;
+  -webkit-transition-timing-function: linear;
+}
+#divNavIcon.has-unread-items:after {
+  display: none;
+}
+
+#divNavIcon.home {
+	background-position: -26px -322px;
+}
+#divNavIcon.mentions {
+	background-position: -27px -261px;
+}
+#divNavIcon.favorites {
+	background-position: -214px -257px;
+}
+#divNavIcon.public-timeline {
+	background-position: -293px -311px;
+}
+#divNavIcon.lists {
+  background-position: -345px -311px;
+}
+#divNavIcon.my-tweets {
+	background-position: -94px -317px;
+}
+#divNavIcon.my-tweets:after {
+	right: -5px;
+}
+#divNavIcon.go-to-user {
+	background-position: -274px -257px;
+}
+#divNavIcon.search {
+	background-position: -228px -315px;
+	margin-left: -4px;
+}
+#divNavIcon.trends {
+	background-position: -23px -372px;
+}
+#divNavIcon.nearby {
+    background-position: -167px -319px;
+}
+#divNavIcon.messages {
+    background-position: -94px -259px;
+}
+#divNavIcon.drafts {
+    background-position: -153px -259px;
+}
+
+/*
+	Custom rows for actions and people etc.
+		*/
+#divActions {
+	margin-top: -15px;
+}
+/* Gives it more room since delete is right by reply and there are only two actions. Makes it easier to hit reply */
+.message #divActions {
+  
+}
+
+.tm-row {
+	width: 320px;
+	height: 52px;
+	line-height: 52px;
+	float: left;
+	text-align: center;
+	background: url("../images/row-divider.png") no-repeat bottom center;
+	font-size: 19px;
+	color: #ecf2f8;
+}
+
+.last {
+	background: none;
+}
+/* message class must be added explicitly in order to get the pressed state to work */
+.selected.tm-row, .selected.tm-row.unfavorite, .message .selected.tm-row.delete {
+	background-image: url("../images/pressed-row/row-pressed-top.png"), url("../images/pressed-row/row-pressed-bottom.png"), url("../images/pressed-row/row-pressed-middle.png");
+	background-repeat: no-repeat;
+	background-position: top left, bottom left, center center;
+	height: 54px;
+	line-height: 58px;
+	margin-top: -2px;
+}
+/* 
+	Icons for actions/lists
+		*/
+.tm-row span {
+	position: relative;
+	margin-right: -14px;
+}
+.tm-row.delete {
+	display: none;
+}
+.favorited .tm-row.favorite {
+	display: none;
+}
+.unfavorited .tm-row.unfavorite {
+	display: none;
+}
+/* Show delete action for certain types of tweets and scenes only */
+.my-tweet .tm-row.delete, .compose-actions .tm-row.delete, .message .tm-row.delete {
+	display: block;
+}
+/* Make sure message specific actions are shown and those that don't pertain (like favorite) are hidden. */
+.message .tm-row.delete {
+  background: none;
+}
+.message .tm-row.favorite {
+  display: none;
+}
+.message .tm-row.retweet {
+  display: none;
+}
+.tm-row span:after {
+	content: '';
+	display: block;
+	height: 34px;
+	width: 34px;
+	position: absolute;
+	left: -33px;
+	top: -4px;
+	background-image: url("../images/icons.png");
+	background-repeat: no-repeat;
+}
+.tm-row.retweet span:after {
+	background-position: -25px -10px;
+}
+.my-tweet .tm-row.retweet {
+	display: none;
+}
+.tm-row.reply span:after {
+	background-position: -80px -10px;
+	top: -5px;
+}
+.tm-row.favorite span {
+	margin-right: -17px;
+}
+.tm-row.favorite span:after {
+	background-position: -253px -10px;
+	left: -37px;
+}
+/* stops the bottom divider from showing whether favorited or not. The "favorite" action has the .last class applied and the divider is removed using the .last class */
+.tm-row.unfavorite {
+	background: none;
+}
+.tm-row.unfavorite span:after {
+	background-position: -193px -10px;
+	left: -37px;
+}
+.tm-row.delete span:after {
+	background-position: -135px -10px;
+}
+.tm-row.show-conversation span:after {
+  background-position: -95px -61px;
+  left: -36px;
+}
+.tm-row.show-conversation span {
+  margin-right: -16px;
+}
+/* Shifts conversation icon slightly to the right if there is a photo attached */
+.has-photo .tm-row.show-conversation span:after {
+  left: -34px;
+}
+.has-photo .tm-row.show-conversation span {
+  margin-right: -26px;
+}
+
+.tm-row.mention span:after {
+  background-position: -78px -113px;
+}
+.tm-row.direct-message span:after {
+  background-position: -23px -113px;
+  left: -35px;
+}
+.not-followed-back .tm-row.direct-message {
+  -webkit-transition-property: color, opactiy;
+  -webkit-transition-duration: .5s;
+  -webkit-transition-timing-function: linear;
+}
+.not-followed-back .tm-row.direct-message {
+  opacity: .4;
+  color: #8d9ea9;
+}
+
+/* Makes the icon into a loading gif */
+.tm-row.loading.selected span:after {
+/*	background-image: url("../images/ajax-loader-on-bg.gif");*/
+	background-image: url("../images/ajax-loader-on-selected.gif");
+	background-position: center center;
+}
+.tm-row.loading span:after {
+  background-image: url("../images/ajax-loader-action-item-normal.gif");
+  background-position: center center;
+}
+/*.selected.tm-row.loading span:after {
+	background-image: url("../images/ajax-loader-on-selected.gif");
+	background-position: center center;
+}*/
+
+
+
+
+
+/* Conversation specific styles */
+/* If prefaced with div it is for the the old div style with no real divider. To easy to miss. */
+#divTweetsNoLongerExist, div.divTimelineDivider, .small-loading-text {
+  width: 90%;
+  padding: 10px 5%;
+  font-size: 14px;
+  font-weight: bold;
+  display: none;
+  color: #acbdc9;
+  text-align: center;
+  margin: 0px;
+  padding-top: 15px;
+  -webkit-palm-mouse-target: ignore;
+}
+.small-loading-text {
+  position: relative;
+  font-size: 16px;
+  top: 7px;
+}
+#divLoadingListIFollow.small-loading-text {
+  top: -55px;
+}
+.small-loading-text img {
+  position: relative;
+  top: 5px;
+  left: -2px;
+}
+
+.conversation-list .tweet {
+  opacity: 0;
+  -webkit-transition-property: opacity;
+  -webkit-transition-duration: .3s;
+  -webkit-transition-timing-function: linear;
+}
+.conversation-list .tweet.show {
+  opacity: 1;
+}
+
+.timeline-list.palm-list div[name=topSpacer] + div.divTimelineDivider, .timeline-list.palm-list div[name=topSpacer] + table.timelineDivider {
+  display: none !important;
+} 
+
+/* Divider style */
+div.divTimelineDivider {
+  display: block;
+  color: #d1dfe8;
+  padding: 12px 0px 0px 0px;
+  padding-left: 15px;
+  margin-bottom: -2px;
+  width: 305px;
+  font-size: 15px;
+}
+.has-header div.divTimelineDivider {
+  margin-bottom: 14px;
+}
+.divTimelineDivider span.milliseconds, .timelineDivider span.milliseconds {
+  display: none;
+}
+.conversation-list table.timelineDivider.palm-divider {
+  display: none !important;
+}
+
+
+table.timelineDivider.palm-divider {
+  margin-top: 2px;
+  margin-bottom: -5px;
+}
+.has-header table.timelineDivider.palm-divider {
+  margin-bottom: 12px;
+}
+
+
+
+
+
+
+/* Custom dark header */
+.divHeader {
+	width: 100%;
+	background: url("../images/dark-header-bg.png") no-repeat bottom left;
+	min-height: 82px;
+	position: relative;
+}
+.divHeader.selected {
+  background-image: url("../images/dark-header-bg.png"), url("../images/dark-header-tapped-bg.png");
+  background-position: bottom left, bottom left;
+}
+
+
+/* 
+	Tweet View page 
+		*/
+
+.big-avatar {
+	width: 40px;
+	height: 76px;
+	position: relative;
+	float: left;
+	margin-left: 3px;
+	margin-top: 6px;
+}
+.big-avatar img.prof-image{
+	position: absolute;
+	width: 44px;
+	height: 44px;
+	-webkit-border-radius: 1px;
+	top: 6px;
+	left: 9px;
+/*	-webkit-transform: rotate(-4deg);*/
+}
+.big-avatar img.big-avatar-cover {
+	position: absolute;
+	z-index: 1;
+	width: 62px;
+	height: 64px;
+	overflow: hidden;
+}
+.divHeader .user-info {
+	float: left;
+	margin-left: 26px;
+	margin-top: 13px;
+}
+.user-info span {
+	display: block;
+	float: left;
+	clear: right;
+	width: 140px;
+}
+.user-info .real_name {
+	font-size: 17px;
+	font-weight: bold;
+	color: #fff;
+}
+.user-info .screen_name {
+	font-size: 15px;
+	color: #c9d2da;
+	clear: left;
+	margin-top: -2px;
+}
+.divHeader .header-button {
+	display: block;
+	padding: 20px 0px;
+	width: 72px;
+	height: 33px;
+	background: transparent url("../images/icons.png") no-repeat -101px -383px;
+	position: absolute;
+	right: 20px;
+}
+.header-button.selected, .header-button:active {
+	background-position: -195px -383px;
+}
+
+/* Tweet view photo thumbnails */
+#divPhotoThumbnailWrapper {
+  position: absolute;
+  top: 100%;
+  margin-top: -61px;
+  left: 7px;
+  width: 95px;
+  height: 84px;
+  z-index: 100;
+  display: none;
+}
+.conversation #divPhotoThumbnailWrapper {
+  left: 3px !important;
+}
+#divPhotoThumbnailWrapper #divRelativeWrapper {
+  position: relative;
+}
+#divPhotoThumbnailWrapper #divPhotoThumbnailCover {
+  width: 95px;
+  height: 84px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 200;
+  -webkit-palm-mouse-target: ignore;
+  background: transparent url('../images/tweet-view/photo-thumbnail-cover.png') no-repeat center center;
+}
+#divPhotoThumbnailWrapper #divImageWrapper {
+  position: absolute;
+  top: 8px;
+  left: 15px;
+  z-index: 99;
+  width: 69px;
+  height: 58px;
+  overflow: hidden;
+/*  border: 1px solid red;*/
+  -webkit-perspective-origin-x: 0%;
+  -webkit-perspective-origin-y: 0%;
+  background: black url('../images/ajax-loader-big.gif') no-repeat center center;
+/*  -webkit-transform: rotate(7deg);*/
+}
+#divImageWrapper img {
+  border: none;
+  width: 69px;
+}
+
+
+
+/* 
+	User Info styles
+		*/
+
+.header-button.loading {
+	width: 92px;
+	background-image: url("../images/ajax-loader-header-small.gif");
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+.header-button.unfollow {
+	width: 92px;
+	background-position: -215px -453px;
+}
+.header-button.selected.unfollow, .header-button.unfollow:active {
+	background-position: -317px -453px;
+}
+.header-button.follow {
+	width: 81px;
+	background-position: -7px -451px;
+}
+.header-button.selected.follow, .header-button.follow:active {
+	background-position: -105px -451px;
+}
+.header-button.me {
+	background-position: -294px -535px; /* subtract 22px from the top position in icons.png */
+	width: 82px;
+/*	background-position: -345px -453px;*/
+}
+
+/*
+	Trend results styles
+		*/
+.header-button.what {
+	width: 95px;
+	float: right;
+	padding: 12px 0px;
+	margin-right: 14px;
+	height: 22px;
+	background-position: -26px -559px;
+	display: none;
+}
+.has-whats-this .header-button.what {
+	display: block;
+}
+.header-button.what:active, .header-button.what.selected {
+	background-position: -156px -559px;
+}
+#divHeaderDescription {
+	overflow: hidden;
+	height: 0px;
+	float: left;
+	width: 320px;
+	margin-top: -4px;
+	background: transparent url("../images/row-divider.png") no-repeat top center;
+	-webkit-transition-property: height;
+	-webkit-transition-duration: .4s;
+	-webkit-transition-timing-function: ease-in;
+}
+#divHeaderDescription p {
+	overflow: hidden;
+	padding: 9px 12px 17px 17px;
+	font-size: 16px;
+	color: #d6e8f8;
+	margin-top: 0px;
+}
+#divHeaderDescription p a, #divHeaderDescription p span.tappable-username, #divHeaderDescription p span.hashtag {
+	color: #FFF !important;
+/*	text-decoration: none;*/
+	font-weight: strong;
+}
+#divHeaderDescription p a:active, #divHeaderDescription span.tappable-username:active, #divHeaderDescription span.hashtag:active {
+	color: #FFF !important;
+}
+
+
+.divHeader {
+	position: relative;
+/*	background-color: blue;*/
+}
+.subNavSpacer {
+	margin-bottom: 33px;
+}
+#divUserSubNavWrapper {
+	position: absolute;
+	top:  53px;
+	left: 0;
+	width: 100%;
+	padding-left: 52px; /*54px put the info and tweets in exact spot, but shifted mentions too far over
+/*	outline: 1px solid red;*/
+}
+.divSubNavSection {
+	position: relative;
+	display: block;
+	height: 76px;
+	width: 64px;
+	margin-left: -4px;
+	float: left;
+/*	outline: 1px solid blue;*/
+}
+.divSubNavSection:after {
+	position: absolute;
+	top: 20px;
+	left: 18px;
+	content: '';
+	display: block;
+	height: 35px;
+	width: 35px;
+	background: transparent url("../images/icons.png") no-repeat -26px -60px;
+}
+.divSubNavSection.selected, .divSubNavSection:active/*, .divSubNavSection*/ {
+	background: transparent url("../images/icons.png") no-repeat -57px -751px;
+}
+
+.divSubNavSection#user-tweets-button {
+	background-position: -192px -751px;
+}
+.divSubNavSection#user-tweets-button:after {
+	background-position: -94px -61px;
+}
+
+.divSubNavSection#user-favorites-button {
+	background-position: -330px -751px;
+}
+.divSubNavSection#user-favorites-button:after {
+	background-position: -253px -10px;
+}
+
+.divSubNavSection#user-mentions-button {
+	background-position: -317px -667px;
+}
+.divSubNavSection#user-mentions-button:after {
+	background-position: -210px -61px;
+}
+
+
+.divDarkPane {
+	float: left;
+	width: 258px;
+	border: 31px solid transparent;
+	border-top-width: 26px;
+	border-bottom-width: 36px;
+	min-height: 47px;
+	-webkit-border-image: url("../images/user-info/dark-user-pane.png") 26 31 36 31; /* 8% 12% 11% 12% */
+}
+
+#divUserInfoPane {
+	margin-top: -5px;
+}
+#divUserInfoPane p {
+	color: #adc4d5; /* was c7d6e1 which was lighter */
+	font-size: 15px;
+	line-height: 18px;
+	padding: 0px;
+	margin: 0px;
+	margin-bottom: 4px;
+	margin-left: -3px;
+	width: 268px;
+}
+#divUserInfoPane span.title {
+	color: #738a9d;
+	margin-right: 4px;
+	font-weight: bold;
+}
+#divUserInfoPane p a {
+	color: #95c9ee;
+	position: relative;
+	padding: 7px 0%;
+	padding-top: 3px;
+}
+#divUserInfoPane p a:active {
+	color: white;
+}
+/*#divUserInfoPane p a:active:after {
+	display: block;
+	content: '';
+	position: absolute;
+	top: 3px;
+	left: -4px;
+	height: 100%;
+	width: 100%;
+	padding: 0px 4px;
+	-webkit-border-radius: 3px;
+	background: black;
+	opacity: .2;
+	-webkit-palm-mouse-target: ignore;
+}*/
+
+/* Indent Pane for followers/following etc. */
+#divUserIndent {
+	width: 281px;
+	height: 83px;
+	margin: 10px 0px -10px -11px;
+	float: left;
+	background: transparent url("../images/user-info/user-pane-indent.png") no-repeat center center;
+}
+.divIndentSection {
+	width: 93px;
+	height: 81px;
+	float: left;
+	text-align: center;
+	font-size: 15px;
+	overflow: hidden;
+	color: #c8dcea;
+}
+.divIndentSection.selected {
+	color: #FFF;
+}
+.divIndentSection.selected span.label{
+	color: #76c0f7;
+}
+.divIndentSection span.label {
+	color: #8098ab;
+	width: 97%;
+	float: left;
+	font-weight: bold;
+	margin-top: 10px;
+	padding-left: 3%;
+}
+.divIndentSection span.number {
+	font-size: 29px;
+	font-weight: bold;
+	width: 100%;
+	margin-top: 3px;
+	float: left;
+}
+.divIndentSection span.plus {
+	color: #8098ab;
+	font-weight: normal;
+	line-height: 20px;
+}
+.divIndentSection span.comma {
+	font-weight: normal;
+	font-size: 27px;
+}
+
+
+
+/*
+	Tweet View - Single Tweet
+		*/
+#divSingleTweet .tweet-content-wrapper {
+	position: relative;
+}
+#divSingleTweet .tweet-content {
+	-webkit-box-sizing: border-box;
+	width: 320px;
+	border-width: 31px 16px 46px 48px;
+	-webkit-border-image: url("../images/tweet-view/blue-tweet-view.png") 31 16 46 48;
+	padding: 0;
+	margin-top: -12px;
+	pointer-events: ignore;
+}
+/* Position emoticons to the middle */
+#divSingleTweet .tweet-content img {
+ /* margin-top: -8px;
+  position: relative;
+  top: 6px;*/
+}
+#divSingleTweet.mention .tweet-content {
+	-webkit-border-image: url("../images/tweet-view/yellow-tweet-view.png") 31 16 46 48;
+}
+#divSingleTweet.my-tweet .tweet-content {
+	-webkit-border-image: url("../images/tweet-view/turquoise-tweet-view.png") 31 16 46 48;
+}
+#divSingleTweet .tweet-content p {
+	color: #121517;
+	line-height: 20px;
+	font-size: 16px;
+	margin: -13px 0 -13px -27px;
+	pointer-events: auto;
+}
+#divSingleTweet #star {
+	position: absolute;
+	top: -30px;
+	right: 0;
+	z-index: 5;
+	height: 88px;
+	width: 50px;
+	overflow: hidden;
+	background: transparent url("../images/tweets/stars.png") no-repeat -56px 0px;
+	display: block;
+	opacity: 1;
+	-webkit-transform: scale(1) translate(0, 0);
+	-webkit-transition-property: -webkit-transform, opacity;
+	-webkit-transition-duration: .5s, .4s;
+	-webkit-transition-timing-function: linear, ease-out;
+	pointer-events: ignore;
+}
+#divSingleTweet #star.favorited {
+	opacity: 1;
+	-webkit-transform: scale(1) translate(0, 0);
+}
+#divSingleTweet #star.unfavorited {
+	opacity: 0;
+	-webkit-transform: scale(2.5) translate(-35px, 25px);
+}
+#divSingleTweet p.source_and_time,
+#divSingleTweet p.source_location {
+	font-size: 14px;
+	color: #3c5d76;
+	text-align: right;
+	margin-top: 15px;
+	margin-bottom: -10px;
+	padding-right: 3px;
+}
+#divSingleTweet p.source_location {
+	margin-top: 7px;
+	margin-bottom: 10px;
+}
+#divSingleTweet span.source, #divSingleTweet span.source a {
+	color: #25323b;
+}
+
+#divSingleTweet.mention p.source_and_time {
+	color: #68665f;
+}
+#divSingleTweet.mention span.source, #divSingleTweet span.source a {
+	color: #373734;
+}
+
+#divSingleTweet.my-tweet p.source_and_time {
+	color: #346673;
+}
+#divSingleTweet.my-tweet span.source, #divSingleTweet span.source a {
+	color: #25363b;
+}
+
+#location-info #mapImage {
+	margin-left: -27px;
+	margin-bottom: -13px;
+}
+
+/* 
+	Tweet/timeline styles
+		*/
+/* moved to tweets.css and updated to render faster */
+
+
+
+/* 
+	Button styles
+	
+	 */
+.tm-blue-button {
+	width: 100%;
+	height: 52px;
+	display: block;
+	float: left;
+	clear: both;
+	margin-top: -8px;
+	position: relative;
+}
+
+
+.tm-blue-button .palm-button {
+	width: 285px;
+	height: 52px;
+	margin-left: auto;
+	margin-right: auto;
+	-webkit-border-image: url(../images/blue-button-bg.png) 0 16 0 16 stretch stretch;
+}
+.tm-blue-button .palm-button.selected {
+	-webkit-border-image: url(../images/blue-button-indented-bg.png) 0 16 0 16 stretch stretch;
+}
+
+
+	/* Shine  */
+.tm-blue-button .palm-button-wrapper {
+	background-image: url(../images/button-shine.png);
+	background-repeat: no-repeat;
+	background-position: center bottom;
+	height: 100%;
+	width: 100%;
+	margin-right: -6px;
+	position: relative;
+}
+/*
+.tm-blue-button .palm-button-wrapper:after {
+	content: '';
+	position: absolute;
+	z-index: 5;
+	top: 0;
+	left: 0;
+	display: block;
+	background-image: url(../images/button-text.png);
+	background-repeat: no-repeat;
+	background-position: 92px -144px;
+	height: 100%;
+	width: 100%;
+	margin-right: -6px;
+}*/
+/* Disabled button styles */
+.tm-blue-button.disable .palm-button {
+    -webkit-border-image: url(../images/blue-button-pressed-bg.png) 0 16 0 16 stretch stretch;
+    -webkit-palm-mouse-target: ignore; /* Very hacky. later I'll want to add a shim or remove the event. This works for now though */
+}
+.tm-blue-button.disable .palm-button-wrapper:after {
+    opacity: .7;
+}
+
+
+/* Removes the shine when pressed down */
+.tm-blue-button .selected .palm-button-wrapper {
+	background: none;
+}
+.tm-blue-button .selected .palm-button-wrapper:after {
+	background-position: 92px -143px;
+}
+
+
+/* See line 301 of Messaging app in messaging.css for more text style */
+
+/* Text field styles */
+.tm-text-field {
+	width: 287px;
+	height: 47px;
+	float: left;
+	clear: both;
+	background: transparent url("../images/text-field-bg.png") no-repeat center center;
+	border: none;
+	outline: none;
+	color: #FFF;
+	padding: 0px 20px;
+	margin-bottom: 19px;
+}
+.tm-text-field div {
+	color: #b9cee0;
+	height: 27px;
+	padding: 12px 15px 15px 15px;
+	line-height: 20px;
+}
+.tm-text-field .hint-text {
+	color: #b9cee0;
+	margin-top: -1px;
+}
+.focused .tm-text-field .hint-text {
+	color: #FFF;
+}
+.tm-text-field input {
+	height: 20px;
+	padding: 9px 14px 15px 14px;
+	line-height: 20px;
+	color: #FFF;
+	background: none;
+	border: none;
+}
+
+/* The Big Loader when loading timelines, users, etc. */
+#divBigLoader.sink { /* this is the default where the loader is deep into the screen and can pop forward */
+	position: fixed;
+	z-index: 100;
+	top:  50%;
+	left:  50%;
+	width: 70px;
+	margin-left: -35px;
+	margin-top: -35px;
+	height: 70px;
+	-webkit-border-radius: 10px;
+	background: black url("../images/ajax-loader-big.gif") no-repeat center center;
+	-webkit-transform: scale(.85);
+	opacity: 0;
+	display: block;
+	-webkit-transition-property: -webkit-transform, opacity;
+	-webkit-transition-duration: .15s;
+	-webkit-palm-mouse-target: ignore;
+}
+#divBigLoader.show { /* pops the loader from behind and bring it to be seen */
+	-webkit-transform: scale(1);
+	opacity: .8;
+}
+#divBigLoader.pop { /* "pops" the loader out of the scene */
+	/*-webkit-transform: scale(1.4);
+	opacity: 0;*/
+	display: none;
+}
+
+/* Sign In Page */
+div#divLogoWrapper {
+	background: transparent url("../images/sign-in-logo.png") no-repeat center center;
+	margin-top: 6px;
+	margin-bottom: 20px;
+	height: 130px;
+	padding: 0px 34px;
+}
+#divCheckMark {
+	height: 33px;
+	width: 35px;
+	overflow: hidden;
+	background: transparent url("../images/sign-in-icons.png") no-repeat -8px -129px;
+	position: absolute;
+	left: 78px;
+	top: 14px;
+	-webkit-palm-mouse-target: ignore;
+}
+.show-loader #divCheckMark {
+	display: none;
+}
+/* TODO: Make this appear above the shine */
+#divLoader {
+	display: none;
+	height: 33px;
+	width: 35px;
+	overflow: hidden;
+	background: transparent url(../images/ajax-loader.gif) no-repeat center center;
+	position: absolute;
+	left: 78px;
+	top: 13px;
+	z-index: 100;
+	-webkit-palm-mouse-target: ignore;
+/*	-webkit-transition-property: top;
+	-webkit-transition-duration: 1s;
+	-webkit-transition-timing-function: linear;	*/
+}
+.show-loader #divLoader {
+	display: block;
+}
+
+#divEmptyList {
+    position: absolute;
+    color: #BBBs;
+    top: 0px;
+    left: 50%;
+    margin-left: -34%;
+    width: 56%;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+    background: black;
+    opacity: .6;
+    -webkit-border-radius: 9px;
+    padding: 3% 6%;
+    margin-top: 150px;
+    -webkit-transform: translate(0px, 0px);
+    -webkit-transition-property: -webkit-transform/*left, opacity*/;
+    -webkit-transition-duration: .40s;
+    -webkit-transition-timing-function: ease-in-out;
+}
+.user-info-tweets #divEmptyList {
+  margin-top: 185px;
+}
+#divEmptyList.hide {
+  /*left: -50%;*/
+  -webkit-transform: translate(-300px, 0px);
+/*  opacity: .4;*/
+}
+
+#divImageViewWrapper {
+  background: black;
+  width: 100%;
+  height: 100%;
+}
+#divImageViewer {
+  background: black url('../images/ajax-loader-big.gif') no-repeat center center;
+}
+
+
+/* Message styles, palm buttons on bottom */
+/* Palm command menus go here */
+/*.palm-menu-fade {
+  background: none !important;
+}
+.palm-menu-group {
+  left: 50px !important;
+}*/
+
+
+/* Quick Bar */
+#divQuickBarWrapper {
+  background: transparent url('../images/quick-bar/background.png') no-repeat center center;
+  width: 268px;
+  height: 59px;
+  position: fixed;
+  bottom: 0px;
+  left: 50%;
+  margin-left: -134px;
+  z-index: 3000;
+  -webkit-transform: translate(0px, 59px);
+  /*-webkit-transition-property: bottom;*/
+  -webkit-transition-property: -webkit-transform;
+  -webkit-transition-duration: .2s;
+  -webkit-transition-timing-function: linear;
+}
+#divQuickBarWrapper.appear {
+  /*bottom: 0px;*/
+  -webkit-transform: translate(0px, 0px);
+}
+#divQuickBarWrapper .quick-bar-icon {
+  height: 59px;
+  width: 89px;
+  float: left;
+  background: transparent url('../images/quick-bar/icons.png') no-repeat top left;
+}
+.quick-bar-icon#quickRefresh {
+  background-position: -89px 0px;
+}
+#divQuickBarWrapper.loading .quick-bar-icon#quickRefresh {
+  background: transparent url('../images/quick-bar-loader.gif') no-repeat center center;
+}
+.quick-bar-icon#quickJumpBottom {
+  background-position: -180px 0px;
+}
+
+/* Preferences styles */
+.palm-prefs-list .palm-row {
+  background: url("../images/row-divider.png") no-repeat bottom center;
+}
+.palm-prefs-list .palm-row.last {
+  background-image: none !important;
+  margin-bottom: 17px;
+}
+.palm-list-selector {
+  position: static;
+}
+.palm-list-selector .label {
+  color: #dce6f0 !important;
+}
+.palm-list-selector .list-selector-value {
+  padding-left: 8px;
+}
+.palm-list-selector.long-label .label {
+  max-width: 60%;
+}
+.palm-list-selector .list-selector-triangle {
+  padding-left: 7px;
+  position: relative;
+  top: 1px;
+}
+
+/* Toggle styles */
+.toggle-section .toggle-label {
+  max-width: 60%;
+  height: 52px;
+  line-height: 50px;
+  padding-left: 20px;
+  float: left;
+}
+
+.sliding-toggle .toggle-text {
+  position: relative;
+}
+.sliding-toggle .toggle-text span {
+  position: relative;
+  top: 0px;
+  left: 1px;
+  -webkit-transition-property: left;
+  -webkit-transition-duration: .17s;
+  -webkit-transition-timing-function: ease-in-out;
+  z-index: 0;
+}
+.sliding-toggle .toggle-button {
+  float: none;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 100%;
+  z-index: 1;
+  background-position: top right !important;
+  background-repeat: no-repeat !important;
+  -webkit-transition-property: right, margin-right;
+  -webkit-transition-duration: .17s;
+  -webkit-transition-timing-function: ease-out;
+}
+.sliding-toggle .toggle-button.true {
+  right: 0px;
+}
+.sliding-toggle .toggle-button.false + span {
+  left: 25px;
+}
+.sliding-toggle .toggle-button.false {
+  right: 100%;
+/*  margin-left: 0px;*/
+  margin-right: -23px;
+}
+
+
+
+/* 
+  Preferences button
+    */
+#divButtonWrapper.add-account-button .palm-button-wrapper:after {
+	background-position: 52px -547px;
+}
+#divButtonWrapper.add-account-button .selected .palm-button-wrapper:after {
+	background-position: 52px -545px;
+}
+.palm-list.account-list {
+  padding-bottom: 10px;
+}
+
+    
+/* Preferences Header */
+#divShortHeader.preferences {
+  margin-bottom: -9px;
+  padding: 7px 0px;
+  -webkit-palm-mouse-target: ignore;
+}
+#divShortHeader.preferences .short-header-text {
+  width: 240px;
+  font-size: 19px;
+  font-weight: normal;
+  color: #e3f1fe;
+}
+
+/* tweet - Location picker */
+#locationList {
+	width: 260px;
+	margin: 0 auto;
+}
+#locationList .palm-row {
+	background: none;	
+	text-align: center;
+}
+#locationList .palm-row .title {
+	color: #ecf2f8;
+	padding-left: 40px;
+	font-size: 19px;
+}
+#locationPicker .title .list-selector-triangle {
+	
+}
+
+
+/* Exhibition (Dock Mode) */
+
+#exhibition #divLoadNew,
+#exhibition #divNavActionPositioner {
+	display: none;
+}
+
+#exhibition .tweet {
+	pointer-events: none;
+}
+
+
+
+/* Dashboard styles */
+
+.dashboard-icon-tweetme {
+  background-image: url('../images/notifications/notification-icon-large.png');
+}
+.dashboard-newitem.tm {
+  position: relative;
+  background-image: url("../images/icons.png");
+  background-repeat: no-repeat;
+  background-position: -298px -87px;
+  -webkit-border-image:  none;
+  margin-right: -31px;
+  top: 0px;
+  height: 40px;
+  width: 50px;
+}
+.dashboard-newitem.tm span {
+  display: none;
+}
+
+
+
+
+
+
+/* backgrounds.png */
+.sprite-TweetMeBackgroundbtmcovers { background-position: 0 -28px; } 
+.sprite-TweetMeBackground { background-position: 0 -558px; } 
+.sprite-TweetMeNavBackground { background-position: 0 -1088px; } 
+.sprite-TweetMeNavShine { background-position: 0 -1618px; } 
+.sprite-TweetMeNavshadowfortopcard { background-position: -370px 0; } 
+
+/* button-text.png */
+.sprite-TweetMeGotoUser { background-position: 0 0; } 
+.sprite-TweetMeSearch { background-position: 0 -77px; } 
+.sprite-TweetMeSignInv2 { background-position: 0 -155px; } 
+.sprite-TweetMev155ComposeView { background-position: 0 -236px; } 

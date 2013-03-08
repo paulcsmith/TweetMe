@@ -1,0 +1,132 @@
+[
+    {"source": "app/assistants/app-assistant.js"},
+    {
+        "scenes": "sign-in",
+        "source": "app/assistants/sign-in-assistant.js"
+    },
+    {
+        "scenes": "home",
+        "source": "app/assistants/home-assistant.js"
+    },
+    {
+        "scenes": "tweet-view",
+        "source": "app/assistants/tweet-view-assistant.js"
+    },
+    {
+        "scenes": "mentions",
+        "source": "app/assistants/mentions-assistant.js"
+    },
+    {
+        "scenes": "favorites",
+        "source": "app/assistants/favorites-assistant.js"
+    },
+    {
+        "scenes": "public-timeline",
+        "source": "app/assistants/public-timeline-assistant.js"
+    },
+    {
+        "scenes": "my-tweets",
+        "source": "app/assistants/my-tweets-assistant.js"
+    },
+    {
+        "scenes": "user-info",
+        "source": "app/assistants/user-info-assistant.js"
+    },
+    {
+        "scenes": "go-to-user",
+        "source": "app/assistants/go-to-user-assistant.js"
+    },
+    {
+        "scenes": "scene",
+        "source": "app/assistants/scene-assistant.js"
+    },
+    {
+        "scenes": "search",
+        "source": "app/assistants/search-assistant.js"
+    },
+    {
+        "scenes": "search-results",
+        "source": "app/assistants/search-results-assistant.js"
+    },
+    {
+        "scenes": "following-followers",
+        "source": "app/assistants/following-followers-assistant.js"
+    },
+    {
+        "scenes": "trends",
+        "source": "app/assistants/trends-assistant.js"
+    },
+    {
+        "scenes": "trends-results",
+        "source": "app/assistants/trends-results-assistant.js"
+    },
+    {
+        "scenes": "compose",
+        "source": "app/assistants/compose-assistant.js"
+    },
+    {"source": "javascripts/twitter.js"},
+    {"source": "app/models/cookie.js"},
+    {"source": "javascripts/adaptors/LawnchairAdaptorHelpers.js"},
+    {"source": "javascripts/adaptors/WebkitSQLiteAdaptor.js"},
+    {"source": "javascripts/Lawnchair.js"},
+    {"source": "app/models/data_stores.js"},
+    {"source": "app/models/drafts.js"},
+    {"source": "javascripts/twitter-helpers.js"},
+    {"source": "javascripts/notifications.js"},
+    {"source": "javascripts/dashboard-helper.js"},
+    {"source": "javascripts/spaz-file-uploader.js"},
+    {"source": "javascripts/twit-image-url.js"},
+    {"source": "javascripts/widgets.js"},
+    {"source": "javascripts/extras.js"},
+    {"source": "javascripts/quick-bar.js"},
+    {"source": "app/models/accounts.js"},
+    {"source": "app/assistants/utils/oauth.js"},
+    {
+        "scenes": "oauth",
+        "source": "app/assistants/oauth-assistant.js"
+    },
+    {
+        "scenes": "oauthbrowser",
+        "source": "app/assistants/oauthbrowser-assistant.js"
+    },
+    {
+        "scenes": "nearby",
+        "source": "app/assistants/nearby-assistant.js"
+    },
+    {
+        "scenes": "messages",
+        "source": "app/assistants/messages-assistant.js"
+    },
+    {
+        "scenes": "drafts",
+        "source": "app/assistants/drafts-assistant.js"
+    },
+    {
+        "scenes": "picture-view",
+        "source": "app/assistants/picture-view-assistant.js"
+    },
+    {
+        "scenes": "preferences",
+        "source": "app/assistants/preferences-assistant.js"
+    },
+    {
+        "scenes": "conversation",
+        "source": "app/assistants/conversation-assistant.js"
+    },
+    {
+        "scenes": "dashboard",
+        "source": "app/assistants/dashboard-assistant.js"
+    },
+    {
+        "scenes": "lists",
+        "source": "app/assistants/lists-assistant.js"
+    },
+    {
+        "scenes": "list-tweets",
+        "source": "app/assistants/list-tweets-assistant.js"
+    },
+	{
+        "scenes": "exhibition",
+        "source": "app/assistants/exhibition-assistant.js"
+    }
+]

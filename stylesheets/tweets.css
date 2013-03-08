@@ -1,0 +1,221 @@
+
+.has-header #listWidget .first.tweet {
+	margin-top: -5px;
+	-webkit-transition-duration: 0s;
+}
+.has-header.conversation-list #listWidget {
+  margin-top: -19px;
+}
+div.tweet {
+	width: 320px;
+	margin-left: 5px;
+	-webkit-transition-property: margin-top, margin-left;
+	-webkit-transition-duration: .5s, .3s;
+	-webkit-transition-timing-function: ease-in-out, ease-in;
+	clear: both;
+	position: relative;
+}
+.tweet .tweet-content {
+	float: right;
+	width: 243px;
+	margin-right: 10px;
+	border-width: 35px 11px 31px 19px;
+	-webkit-border-image: url(../images/tweets/balloons/tweet-blue.png) 35 11 31 19;
+	position: relative;
+}
+.tweet.mention .tweet-content {
+	-webkit-border-image: url(../images/tweets/balloons/tweet-yellow.png) 35 11 31 19;
+}
+.tweet.my-tweet .tweet-content {
+	float: left;
+	margin-left: 2px;
+	border-width: 35px 19px 31px 11px;
+	-webkit-border-image: url(../images/tweets/balloons/tweet-turquoise.png) 35 19 31 11;
+}
+
+.tweet.selected .tweet-content {
+	-webkit-border-image: url(../images/tweets/balloons/tweet-pressed.png) 35 11 31 19;
+}
+
+.my-tweet.selected .tweet-content {
+	-webkit-border-image: url(../images/tweets/balloons/tweet-pressed-right.png) 35 19 31 11;
+}
+
+.star {
+	position: absolute;
+	top: -77px;
+	right: -16px;
+	z-index: 120;
+	height: 88px;
+	width: 50px;
+	overflow: hidden;
+	background: transparent url("../images/tweets/stars.png") no-repeat -56px 0px;
+	display: none;
+}
+.my-tweet .star {
+	top: -74px;
+	left: -18px;
+	background-position: top left;
+}
+/* fixes the star from jumping slightly to the left */
+.my-tweet.selected .star {
+	left: -15px;
+}
+.favorited .star {
+	display: block;
+}
+
+
+/* 
+	avatar styles
+		 */
+.tweet .avatar {
+	/* positioned absolutely from where the content of the tweet is. */
+	position: absolute;
+	top: 12px;
+	left: 0;
+	height: 32px;
+	border: none;
+	background: none;
+}
+.tweet.my-tweet .avatar {
+	right: 0;
+	left: auto;
+}
+.avatar div.avatar_cover_wrapper {
+	position: relative;
+}
+.avatar img {
+	position: absolute;
+	top: 5px;
+	left: 7px;
+	width: 34px;
+	height: 34px;
+}
+
+.conversation .avatar .avatar_cover {
+  background-image: url('../images/tweets/avatar-cover-double.png');
+  background-position: -1px 0px;
+  left: -4px;
+  width: 51px;
+}
+.avatar .avatar_cover, .conversation-list .conversation .avatar .avatar_cover, .conversation-list .my-tweet.conversation .avatar .avatar_cover {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 50px;
+	height: 49px;
+	background: url('../images/tweets/avatar-cover-single.png') top left no-repeat;
+}
+
+.my-tweet.conversation .avatar .avatar_cover {
+  background-image: url('../images/tweets/avatar-cover-double-my-tweets.png');
+  background-position: top left;
+  left: auto;
+  width: 51px;
+}
+.avatar .avatar_cover.selected {
+  background-image: url('../images/tweets/avatar-cover-single-selected.png') !important;
+  background-position: top left;
+  left: 0px;
+}
+/* end avatar styles */
+.tweet-content p {
+	color: #050a0f;
+	margin: 0;
+	padding: 0px;
+	font-size: 15px;
+}
+.tweet-content p strong {
+	color: #232c32;
+}
+/* Must be TAPPABLE-username so it doesn't conflict with user name span displayed on tweets */
+.tweet-content p a, span.tappable-username, span.hashtag, #divHeaderDescription p a {
+	color: #084262;
+	position: relative;
+	padding: 7px 0%;
+	padding-top: 3px;
+	text-decoration: underline;
+}
+/*.tweet-content span.tappable-username, .tweet-content span.hashtag {
+	font-weight: strong !important;
+}*/
+.tweet-content p a:active, span.tappable-username:active, span.hashtag:active, #divHeaderDescription p a:active {
+	color: black;
+}
+.tweet-content p a:active:after, span.tappable-username:active:after, span.hashtag:active:after, #divHeaderDescription p a:active:after {
+	display: block;
+	content: '';
+	position: absolute;
+	top: 3px;
+	left: -4px;
+	height: 76%;
+	width: 100%;
+	padding: 0px 4px;
+	-webkit-border-radius: 3px;
+	background: black;
+	opacity: .2;
+	-webkit-palm-mouse-target: ignore;
+}
+.mention .tweet-content p {
+	color: #1f180e;
+}
+.mention .tweet-content p strong {
+	color: #3f2e19;
+}
+.mention .tweet-content p a, .mention .tweet-content span.tappable-username, .mention .tweet-content span.hashtag {
+	color: #702f0b;
+}
+.tweet-content .tweet-info {
+	margin-top: -32px;
+}
+.username {
+	font-weight: bold;
+	font-size: 16px;
+	color: #033564;
+	width: 163px;
+}
+.prettyTime {
+	font-size: 15px;
+	color: #3b5d6f;
+	float: right;
+	margin-top: 5px;
+}
+.prettyTime .number {
+	font-size: 14px;
+}
+.mention .username {
+	color: #683e0d;
+}
+.mention .prettyTime {
+	color: #6a533b;
+}
+.my-tweet .username {
+	color: #045968;
+	margin-left: 2px;
+}
+.my-tweet .prettyTime {
+	color: #3c515c;
+}
+.tweet-content .geo {
+	color: #3c515c;
+	font-size: 13px;
+	background: url(../images/tweets/geo-pin.png) no-repeat left bottom;
+	padding-left: 16px;
+	margin-top: 3px;
+	margin-bottom: -10px;
+}
+		
+.selected .tweet-info .username {
+	color: #84a3b8;
+}
+.selected .tweet-info .prettyTime,
+.selected .geo {
+	color: #84a3b8;
+}
+.selected .tweet-content p {
+	color: #c4d5e0;
+}
+.selected .tweet-content p strong {
+	color: #c4d5e0;
+}

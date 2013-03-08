@@ -1,0 +1,28 @@
+<div class="#{type} #{favorite} #{metadata}" id="divSingleTweet">
+	<div id="divPhotoThumbnailWrapper">
+		<div id="divRelativeWrapper">
+			<!--Used to position the covers relative to this div-->
+			<div id="divImageWrapper">
+			  <img src="#{imageUrl}" />
+			</div>
+			<div id="divPhotoThumbnailCover">
+			</div>
+		</div>
+	</div>
+	<div class="tweet-content-wrapper">
+		<div class="tweet-content" emoticons-on="true">
+			<div id="star" class="#{favorite}"></div>		
+			<p>#{-formattedText}</p>
+			<p class="source_and_time">#{-prettyTimeLong} <span class="source">#{-source}</span></p>
+			
+			<div id="location-info">
+				<p class="source_and_time source_location">from <span class="source">#{geolocation.place}</span></p>
+				<div id="mapImage"></div>
+			</div>
+		</div>
+	</div>
+	
+	<div x-mojo-element="List" id="divActions">	
+	</div>
+	
+</div>
