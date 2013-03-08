@@ -6,3 +6,7 @@ Some kind things Palm [said about TweetMe](http://developer.palm.com/blog/2010/0
 Also [featured by Dion Almaer](http://almaer.com/blog/more-mobile-ux-the-power-of-dashboards-notifications-and-raw-beauty) (previous Palm/HP developer) on his blog. Scroll down a bit to see what he says.
 
 [Youtube demo video](http://www.youtube.com/watch?feature=player_embedded&v=_7A_fkxIWp0)
+
+[What people said on Twitter](https://twitter.com/TweetMeWebOS/favorites)
+
+[Review of TweetMe](http://www.webosroundup.com/2010/05/tweetme-review/)
