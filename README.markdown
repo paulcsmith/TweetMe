@@ -13,3 +13,7 @@ Also [featured by Dion Almaer](http://almaer.com/blog/more-mobile-ux-the-power-o
 
 
 Feel free to fork and contribute.
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/paulcsmith/tweetme/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
